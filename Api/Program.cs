@@ -19,6 +19,7 @@ if (builder.Environment.IsProduction())
 
 builder.Services.AddSingleton<Repository>();
 builder.Services.AddSingleton<RecipeService>();
+builder.Services.AddSingleton<Translator>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

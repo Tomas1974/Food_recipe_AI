@@ -10,10 +10,12 @@ public class Controller : ControllerBase
 {
     
     private readonly RecipeService _recipeService;
+    private Translator _translator;
     
-    public Controller(RecipeService recipeService)
+    public Controller(RecipeService recipeService, Translator translator)
     {
         _recipeService = recipeService;
+        _translator = translator;
     }
     
     /*
@@ -35,13 +37,13 @@ public class Controller : ControllerBase
      */
     [HttpPost]
     [Route("/create")]
-    public ResponseDTO PostRecipe([FromBody] RecipeModel recipe)
+    public async Task<ResponseDTO> PostRecipe([FromBody] RecipeModel recipe)
     {
+        recipe = await _translator.TranslateMessage(recipe);
         return new ResponseDTO()
         {
             MessageToClient = "Successfully created a recipe",
             ResponseData = _recipeService.CreateRecipe(recipe)
-            
         };
     }
     
