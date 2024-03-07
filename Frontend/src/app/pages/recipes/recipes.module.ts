@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { OutboxPageRoutingModule } from './outbox-routing.module';
+import { InboxPageRoutingModule } from './recipes-routing.module';
 
-import { OutboxPage } from './outbox.page';
+import { RecipesPage } from './recipes.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    OutboxPageRoutingModule
+    InboxPageRoutingModule
   ],
-  declarations: [OutboxPage]
+  declarations: [RecipesPage]
 })
-export class OutboxPageModule {}
+export class RecipesPageModule {}

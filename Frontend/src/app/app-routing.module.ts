@@ -18,16 +18,16 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'inbox',
-    loadChildren: () => import('./pages/inbox/inbox.module').then( m => m.InboxPageModule)
+    path: 'recipes',
+    loadChildren: () => import('./pages/recipes/recipes.module').then(m => m.RecipesPageModule)
   },
   {
-    path: 'outbox',
-    loadChildren: () => import('./pages/outbox/outbox.module').then( m => m.OutboxPageModule)
+    path: 'translation',
+    loadChildren: () => import('./pages/translation/translation.module').then(m => m.TranslationPageModule)
   },
   {
-    path: 'spam',
-    loadChildren: () => import('./pages/spam/spam.module').then( m => m.SpamPageModule)
+    path: 'search',
+    loadChildren: () => import('./pages/search/search.module').then(m => m.SpamPageModule)
   },
 ];
 
