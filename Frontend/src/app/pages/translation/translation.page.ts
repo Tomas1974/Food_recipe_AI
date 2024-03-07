@@ -52,9 +52,7 @@ import {DataService} from "../../Service/data.service";
 
             <ion-button (click)="sendInfo()">Send</ion-button>
           </ion-row>
-          <ion-row>
-            <ion-button (click)="receiveInfo()">Receive</ion-button>
-          </ion-row>
+
 
         </ion-col>
 
@@ -99,7 +97,5 @@ export class TranslationPage implements OnInit {
   this.dataservice.sendInfo();
   }
 
-  receiveInfo() {
-    this.dataservice.getInfo();
-  }
+
 }

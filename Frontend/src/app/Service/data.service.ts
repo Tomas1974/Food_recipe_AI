@@ -3,7 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {firstValueFrom} from "rxjs";
 import {environment} from "../../environments/environment";
 import {recipeModel, ResponseDto} from "./models";
-import {AppModule } from "../app.module";
+
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class DataService {
   recipeName: string="";
 
 
-  constructor(private readonly http: HttpClient, public state:AppModule) { }
+  constructor(private readonly http: HttpClient ) { }
 
 
   async sendInfo()
@@ -34,12 +34,6 @@ export class DataService {
     recipeModel=response.responseData;
     this.translateMessage=recipeModel.text;
 
-
-  }
-
-
-  async getInfo()
-  {
 
   }
 
