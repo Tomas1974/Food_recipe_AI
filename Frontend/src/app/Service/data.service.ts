@@ -13,6 +13,8 @@ export class DataService {
   message: string="";
   translateMessage: string="";
   recipeName: string="";
+  recipesArray: recipeModel[]=[];
+  recipesArrayText: string[]=[];
 
 
   constructor(private readonly http: HttpClient ) { }
@@ -24,7 +26,8 @@ export class DataService {
     let recipeModel:recipeModel = {
       id: 1,
       name: this.recipeName,
-      text: this.message
+      text: this.message,
+
     }
 
     var req = this.http.post<ResponseDto<recipeModel>>(environment.baseUrl+'/create',
@@ -37,6 +40,20 @@ export class DataService {
 
   }
 
+
+  async getAllRecipes()
+  {
+    var result= await firstValueFrom(this.http.get<ResponseDto<recipeModel[]>>(environment.baseUrl+ "/recipe/test"))
+    this.recipesArray=result.responseData!;
+
+    for (let i=0; i<this.recipesArray.length;i++ )
+    {
+          this.recipesArrayText[i]=this.recipesArray[i].text
+    }
+
+
+
+  }
 
 
 }

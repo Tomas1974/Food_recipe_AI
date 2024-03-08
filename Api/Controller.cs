@@ -8,16 +8,15 @@ namespace Api;
 [ApiController]
 public class Controller : ControllerBase
 {
-    
     private readonly RecipeService _recipeService;
     private Translator _translator;
-    
+
     public Controller(RecipeService recipeService, Translator translator)
     {
         _recipeService = recipeService;
         _translator = translator;
     }
-    
+
     /*
      * Gets all recipes from the database.
      */
@@ -28,10 +27,10 @@ public class Controller : ControllerBase
         return new ResponseDTO()
         {
             MessageToClient = "Succesfully got all recipes",
-            ResponseData =  _recipeService.GetAllRecipes()
+            ResponseData = _recipeService.GetAllRecipes()
         };
     }
-    
+
     /*
      * Creates a new recipe in the database.
      */
@@ -46,7 +45,7 @@ public class Controller : ControllerBase
             ResponseData = _recipeService.CreateRecipe(recipe)
         };
     }
-    
+
     /*
      * Deletes an existing recipe from the database.
      */
@@ -55,10 +54,9 @@ public class Controller : ControllerBase
     public object DeleteRecipe([FromRoute] int id)
     {
         _recipeService.DeleteRecipe(id);
-        return  new ResponseDTO()
+        return new ResponseDTO()
         {
             MessageToClient = "Succesfully deleted recipe"
         };
     }
-    
 }

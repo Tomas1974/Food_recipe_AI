@@ -31,7 +31,6 @@ var frontEndRelativePath = "./../frontend/www";
 //builder.Services.AddSpaStaticFiles(conf => conf.RootPath = frontEndRelativePath);
 
 
-
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -47,7 +46,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors(options => {
+app.UseCors(options =>
+{
     options.SetIsOriginAllowed(origin => true)
         .AllowAnyMethod()
         .AllowAnyHeader()
