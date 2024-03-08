@@ -27,8 +27,23 @@ public class Controller : ControllerBase
     {
         return new ResponseDTO()
         {
-            MessageToClient = "Succesfully got all recipes",
+            MessageToClient = "Successfully got all recipes",
             ResponseData =  _recipeService.GetAllRecipes()
+        };
+    }
+    
+    /*
+     * Get a specific recipe from the database.
+     */
+
+    [HttpGet]
+    [Route("/get/recipe/{id}")]
+    public ResponseDTO GetARecipe([FromRoute] int id)
+    {
+        return new ResponseDTO()
+        {
+            MessageToClient = "Successfully got the recipe",
+            ResponseData = _recipeService.GetARecipe(id)
         };
     }
     
@@ -47,6 +62,7 @@ public class Controller : ControllerBase
         };
     }
     
+    
     /*
      * Deletes an existing recipe from the database.
      */
@@ -57,7 +73,7 @@ public class Controller : ControllerBase
         _recipeService.DeleteRecipe(id);
         return  new ResponseDTO()
         {
-            MessageToClient = "Succesfully deleted recipe"
+            MessageToClient = "Successfully deleted recipe"
         };
     }
     

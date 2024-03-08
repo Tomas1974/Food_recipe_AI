@@ -57,4 +57,17 @@ public class RecipeService
             throw new ValidationException("Error in deleting a recipe");
         }
     }
+
+    public RecipeModel GetARecipe(int id)
+    {
+        try
+        {
+          return _repository.GetARecipe(id);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.StackTrace);
+            throw new ValidationException("Error in getting the recipe");
+        }
+    }
 }

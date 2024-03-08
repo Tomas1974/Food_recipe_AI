@@ -67,4 +67,14 @@ public class Repository
             conn.QueryFirst<RecipeModel>(sql, new { id });
         }
     }
+
+    public RecipeModel GetARecipe(int id)
+    {
+        var sql = @"SELECT * FROM recipes.all WHERE id = @id;";
+
+        using (var conn = _dataSource.OpenConnection())
+        {
+           return conn.QueryFirst<RecipeModel>(sql, new { id });
+        }
+    }
 }
