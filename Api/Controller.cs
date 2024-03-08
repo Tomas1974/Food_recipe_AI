@@ -24,7 +24,7 @@ public class Controller : ControllerBase
      * Gets all recipes from the database.
      */
     [HttpGet]
-    [Route("/recipe/all")]
+    [Route("/recipes/all")]
     public ResponseDTO GetAllRecipes()
     {
         return new ResponseDTO()

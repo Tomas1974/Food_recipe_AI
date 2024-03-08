@@ -15,7 +15,8 @@ export class DataService {
   recipeName: string="";
   recipesArray: recipeModel[]=[];
   recipesArrayText: string[]=[];
-
+  messageToTextarea: string | undefined = '';
+  selectedLine: string = '';
 
   constructor(private readonly http: HttpClient ) { }
 
@@ -43,15 +44,21 @@ export class DataService {
 
   async getAllRecipes()
   {
-    var result= await firstValueFrom(this.http.get<ResponseDto<recipeModel[]>>(environment.baseUrl+ "/recipe/test"))
-    this.recipesArray=result.responseData!;
+    var result= await firstValueFrom(this.http.get<ResponseDto<recipeModel[]>>(environment.baseUrl+ "/recipes/all"))
+    this.recipesArray=result.responseData;
 
     for (let i=0; i<this.recipesArray.length;i++ )
     {
-          this.recipesArrayText[i]=this.recipesArray[i].text
+          this.recipesArrayText[i]=this.recipesArray[i].name
     }
 
+  }
 
+  messageToDatafield()
+  {
+
+        const recipe = this.recipesArray.find(product => product.name === this.selectedLine.trim());
+    this.messageToTextarea = recipe?.text;
 
   }
 
