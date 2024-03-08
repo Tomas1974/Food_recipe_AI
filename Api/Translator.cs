@@ -8,6 +8,7 @@ public class Translator
     private static readonly string endpoint = "https://api.cognitive.microsofttranslator.com";
 
     private static readonly string location = "northeurope";
+
     public async Task<RecipeModel> TranslateMessage(RecipeModel recipeModel)
     {
         string route = "/translate?api-version=3.0&from=da&to=en";
@@ -26,16 +27,17 @@ public class Translator
 
             HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
             string result = await response.Content.ReadAsStringAsync();
-            
+
             var jsonResponse = JsonConvert.DeserializeObject<List<TranslationResponse>>(result);
-            
+
             string translatedText = jsonResponse[0].Translations[0].Text;
-            
+
             recipeModel.text = translatedText;
             return recipeModel;
         }
     }
 }
+
 public class TranslationResponse
 {
     public List<Translation> Translations { get; set; }
@@ -45,4 +47,3 @@ public class Translation
 {
     public string Text { get; set; }
 }
-

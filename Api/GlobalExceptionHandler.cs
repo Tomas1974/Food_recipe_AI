@@ -23,7 +23,7 @@ public class GlobalExceptionHandler
 
     /*
      * It invokes the next middleware in the pipeline
-     * and catches any exceptions that occur. 
+     * and catches any exceptions that occur.
      */
     public async Task InvokeAsync(HttpContext http)
     {
