@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import {DataService} from "../../Service/data.service";
+import {UtilitiesService} from "../../Service/utilities.service";
 
 @Component({
   selector: 'app-recipes',
@@ -66,7 +67,8 @@ export class RecipesPage  implements OnInit{
 
 
 
-  constructor(public dataservice: DataService) {
+  constructor(public dataservice: DataService,
+              public utilitiesService: UtilitiesService) {
   }
 
   highlightLine(event: any) {
@@ -93,7 +95,11 @@ export class RecipesPage  implements OnInit{
 
   }
 
-  delete() {
+  async delete() {
+
+    let confirm=await this.utilitiesService.confirmDelete()
+
+    if (confirm)
   this.dataservice.deleteRecipe();
 
 
