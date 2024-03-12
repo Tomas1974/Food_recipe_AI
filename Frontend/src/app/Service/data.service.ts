@@ -62,5 +62,19 @@ export class DataService {
 
   }
 
+  async deleteRecipe()
+  {
+
+    const recipe = this.recipesArray.find(product => product.name === this.selectedLine.trim());
+
+    await firstValueFrom(this.http.delete<ResponseDto<recipeModel[]>>(environment.baseUrl+ "/recipe/"+recipe?.id));
+
+    this.recipesArrayText = this.recipesArrayText.filter(product => product != this.selectedLine.trim());
+
+    this.selectedLine="";
+  }
+
+
+
 
 }

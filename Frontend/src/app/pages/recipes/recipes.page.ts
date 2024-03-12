@@ -31,8 +31,12 @@ import {DataService} from "../../Service/data.service";
        (click)="highlightLine($event)" (dblclick)="sendLineToTextarea($event)" [attr.data-line-number]="i">
     {{ line }}
   </pre>
-
           </div>
+          <ion-button style=".grey {
+                  --ion-color-base: grey !important;
+                    --ion-color-base-rgb: 128,128,128 !important;
+}
+" [disabled]="dataservice.selectedLine === ''" [class.grey]="dataservice.selectedLine === ''" (click)="delete()">Delete</ion-button>
 
         </ion-col>
 
@@ -87,4 +91,10 @@ export class RecipesPage  implements OnInit{
 
   }
 
+  delete() {
+  this.dataservice.deleteRecipe();
+
+
+
+  }
 }
