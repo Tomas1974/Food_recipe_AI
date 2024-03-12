@@ -16,6 +16,7 @@ import {DataService} from "../../Service/data.service";
     </ion-header>
 
     <ion-content [fullscreen]="true">
+      <div style="background-color: #f0f0f0;">
       <ion-header collapse="condense">
         <ion-toolbar>
           <ion-title size="large">outbox</ion-title>
@@ -24,14 +25,16 @@ import {DataService} from "../../Service/data.service";
 
       <ion-row>
         <ion-col>
-          <ion-card>
+
             <h1>Danish recipes</h1>
             <ion-row>
-              <ion-item>
-              <ion-input [(ngModel)]="dataservice.recipeName">Name of the recipe </ion-input>
-              </ion-item>
-            </ion-row>
+              <ion-list>
+                <ion-item>
+                  <ion-input style="background-color: #f0f0f0;" [(ngModel)]="dataservice.recipeName" label="Recipe name" placeholder="Enter text"></ion-input>
+                </ion-item>
+              </ion-list>
 
+            </ion-row>
 
             <ion-item>
 
@@ -40,17 +43,19 @@ import {DataService} from "../../Service/data.service";
               </ion-textarea>
             </ion-item>
 
-          </ion-card>
+
 
         </ion-col>
 
         <ion-col size="1">
 
 
-          <br><br><br>
-          <ion-row>
+          <br><br><br><br><br><br><br><br><br>
+          <ion-row class="ion-justify-content-center">
+            <ion-col size="auto">
+            <ion-button style="align-self: center;" (click)="sendInfo()">Send</ion-button>
+            </ion-col>
 
-            <ion-button (click)="sendInfo()">Send</ion-button>
           </ion-row>
 
 
@@ -58,14 +63,17 @@ import {DataService} from "../../Service/data.service";
 
         <ion-col>
 
-          <ion-card>
+
+
             <h1>Translation</h1>
+            <br><br><br>
             <ion-item>
+
               <ion-textarea style="width: 100%; min-height: 40em; border: 1px solid #000;" [readonly]="true"
                             [(ngModel)]="dataservice.translateMessage"  placeholder="Type something here">
               </ion-textarea>
             </ion-item>
-          </ion-card>
+
 
 
         </ion-col>
@@ -78,7 +86,7 @@ import {DataService} from "../../Service/data.service";
 
       </ion-row>
 
-
+      </div>
     </ion-content>
 
 

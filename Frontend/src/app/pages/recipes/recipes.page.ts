@@ -15,7 +15,8 @@ import {DataService} from "../../Service/data.service";
       </ion-toolbar>
     </ion-header>
 
-    <ion-content [fullscreen]="true">
+    <ion-content [fullscreen]="true" >
+      <div style="background-color: #f0f0f0;">
       <ion-header collapse="condense">
         <ion-toolbar>
           <ion-title size="large">inbox</ion-title>
@@ -42,13 +43,14 @@ import {DataService} from "../../Service/data.service";
 
         <ion-col>
 
-          <h1> {{dataservice.selectedLine}}</h1>
-          <ion-textarea style="width: 100%; min-height: 40em; border: 1px solid #000;" [(ngModel)]="dataservice.messageToTextarea" rows="4" cols="50" readonly></ion-textarea>
+          <h1> Recipe:{{dataservice.selectedLine}}</h1>
+          <ion-textarea style="width: 100%; min-height: 40em; border: 1px solid #000;
+                    background-color: white;" [(ngModel)]="dataservice.messageToTextarea" rows="4" cols="50" readonly></ion-textarea>
 
         </ion-col>
       </ion-row>
 
-
+      </div>
     </ion-content>
 
 
