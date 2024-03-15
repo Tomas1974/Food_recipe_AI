@@ -23,20 +23,20 @@ import {DataService} from "../../Service/data.service";
         </ion-toolbar>
       </ion-header>
 
-      <ion-row>
-        <ion-col>
+      <ion-row class="ion-padding">
+        <ion-col class="ion-padding">
 
             <h1>Danish recipes</h1>
-            <ion-row>
+            <ion-row class="ion-padding">
               <ion-list>
                 <ion-item>
                   <ion-input style="background-color: #f0f0f0;" [(ngModel)]="dataservice.recipeName" label="Recipe name" placeholder="Enter text"></ion-input>
                 </ion-item>
               </ion-list>
 
-            </ion-row>
+            </ion-row >
 
-            <ion-item>
+            <ion-item class="ion-padding">
 
               <ion-textarea style="width: 100%; min-height: 40em; border: 1px solid #000;"
                             [(ngModel)]="dataservice.message"  placeholder="Type something here">
@@ -45,9 +45,9 @@ import {DataService} from "../../Service/data.service";
 
 
 
-        </ion-col>
+        </ion-col >
 
-        <ion-col size="1">
+        <ion-col class="ion-padding">
 
 
           <br><br><br><br><br><br><br><br><br>
@@ -61,12 +61,12 @@ import {DataService} from "../../Service/data.service";
 
         </ion-col>
 
-        <ion-col>
+        <ion-col class="ion-padding">
 
 
 
-            <h1>Translation</h1>
-            <br><br><br>
+            <h1 class="ion-margin">Translation</h1>
+          <br><br><br><br><br><br>
             <ion-item>
 
               <ion-textarea style="width: 100%; min-height: 40em; border: 1px solid #000;" [readonly]="true"
@@ -77,7 +77,7 @@ import {DataService} from "../../Service/data.service";
 
 
         </ion-col>
-        <ion-col>
+        <ion-col class="ion-padding">
 
 
         </ion-col>
