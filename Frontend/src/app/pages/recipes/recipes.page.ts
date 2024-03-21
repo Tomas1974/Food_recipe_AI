@@ -25,8 +25,8 @@ import {UtilitiesService} from "../../Service/utilities.service";
       </ion-header>
 
 
-      <ion-row >
-        <ion-col size="2">
+      <ion-row class="ion-padding">
+        <ion-col class="ion-padding">
           <h1>Recipes</h1>
           <div #customTextarea class="custom-textarea" tabindex="0">
   <pre *ngFor="let line of dataservice.recipesArrayText; let i = index"
@@ -45,7 +45,7 @@ import {UtilitiesService} from "../../Service/utilities.service";
 
         </ion-col>
 
-        <ion-col>
+        <ion-col class="ion-padding">
 
           <h1> Recipe:{{dataservice.selectedLine}}</h1>
           <ion-textarea style="width: 100%; min-height: 40em; border: 1px solid #000;
