@@ -57,7 +57,7 @@ export class DataService {
   messageToDatafield()
   {
 
-        const recipe = this.recipesArray.find(product => product.name === this.selectedLine.trim());
+    const recipe = this.recipesArray.find(product => product.name === this.selectedLine.trim());
     this.messageToTextarea = recipe?.text;
 
   }
