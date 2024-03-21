@@ -117,7 +117,7 @@ export class RecipesPage  implements OnInit, OnDestroy {
       case 'Enter':
 
         this.selectLine(currentFocus); // Call a method to "select" the line
-        event.preventDefault(); // Prevent the default action to avoid any unwanted behavior
+    //    event.preventDefault(); // Prevent the default action to avoid any unwanted behavior
 
         return;
 
@@ -125,25 +125,28 @@ export class RecipesPage  implements OnInit, OnDestroy {
 
     if (nextFocus! && (event.key === 'ArrowDown' || event.key === 'ArrowUp')) {
       nextFocus.focus(); // Change focus for up/down arrow keys
-      event.preventDefault(); // Prevent default scrolling behavior
+   //   event.preventDefault(); // Prevent default scrolling behavior
     }
   }
 
   selectLine(target: EventTarget | null): void {
-    // First, ensure the target is an instance of HTMLElement
+
     if (target instanceof HTMLElement) {
-       if (!target.classList.contains('selected')) {
+       if (!target.classList.contains('selected')) { //Fjerner det blå fra tidligere valgt linje
         this.clearSelections(); // Clear any existing selections
       }
-      target.classList.toggle('selected');
+          target.classList.toggle('selected'); //Uden denne her kan man ikke klikke på linjer eller trykke enter
 
         if (target.classList.contains('selected')) {
-        this.dataservice.selectedLine = target.textContent || '';
+        this.dataservice.selectedLine = target.textContent || ''; //Her vælges værdi på linjen der er trykket på
+        this.dataservice.messageToDatafield();                    //Her sendes data til tekstfeltet
+      }
+    else {
+        this.dataservice.selectedLine = ''; //man kan trykke mellem linjerne og ikke vælge noget. Til det bruges denne her.
         this.dataservice.messageToDatafield();
-      } else {
-        this.dataservice.selectedLine = '';
       }
     }
+
   }
 
 
