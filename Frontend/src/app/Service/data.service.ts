@@ -35,8 +35,17 @@ export class DataService {
       recipeModel);
     var response =await firstValueFrom<ResponseDto<recipeModel>>(req);
 
+
     recipeModel=response.responseData;
     this.translateMessage=recipeModel.text;
+
+    this.recipesArray.push(recipeModel);
+
+    for (let i=0; i<this.recipesArray.length;i++ )
+    {
+      this.recipesArrayText[i]=this.recipesArray[i].name;
+    }
+
 
 
   }

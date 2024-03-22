@@ -62,7 +62,7 @@ import {UtilitiesService} from "../../Service/utilities.service";
   `,
   styleUrls: ['./recipes.page.scss'],
 })
-export class RecipesPage  implements OnInit, OnDestroy {
+export class RecipesPage  implements OnInit  {
 
 
   @ViewChild('customTextarea') customTextarea: ElementRef | undefined;
@@ -74,9 +74,6 @@ export class RecipesPage  implements OnInit, OnDestroy {
               private renderer: Renderer2) {
   }
 
-  ngOnDestroy(): void {
-    window.removeEventListener('focus', this.onPageFocus);
-    }
 
 
 
@@ -86,15 +83,11 @@ export class RecipesPage  implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    window.addEventListener('focus', this.onPageFocus);
-    this.dataservice.getAllRecipes();
+
+   this.dataservice.getAllRecipes();
 
   }
 
-  onPageFocus = (): void => {
-    console.log('Window focus event triggered');
-    //this.dataservice.getAllRecipes();
-  }
 
 
   ngAfterViewInit(): void {
